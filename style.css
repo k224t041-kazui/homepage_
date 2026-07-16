@@ -1,0 +1,352 @@
+
+.about-title {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #d48fa5;
+  letter-spacing: 0.15em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fce8f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+/* ===========================
+   ページ全体
+=========================== */
+.page {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background: #fff5f8;
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem 3rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ドット背景 */
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #f8b4c8 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+  opacity: 0.35;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* ===========================
+   レース（上下）
+=========================== */
+.lace-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lace-top svg {
+  width: 100%;
+  height: 28px;
+}
+
+.lace-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  overflow: hidden;
+  pointer-events: none;
+  transform: scaleY(-1);
+}
+
+.lace-bottom svg {
+  width: 100%;
+  height: 28px;
+}
+
+/* ===========================
+   ハート（JSで生成）
+=========================== */
+.hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 16px;
+  opacity: 0;
+  top: -30px;
+}
+
+/* ===========================
+   リボン
+=========================== */
+.ribbon-wrap {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ribbon {
+  display: inline-block;
+  font-size: 22px;
+  margin: 0 6px;
+  opacity: 0;
+}
+
+/* ===========================
+   ねこ画像
+=========================== */
+.neko-wrap {
+  margin: 0 auto 1rem;
+  width: 150px;
+  opacity: 0;
+  transform: translateY(-30px);
+  position: relative;
+  z-index: 1;
+}
+
+.neko-wrap img {
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid #f8b4c8;
+  background: #fff;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #f4c0d1;
+}
+
+/* ===========================
+   名前
+=========================== */
+.name-block {
+  opacity: 0;
+  transform: translateY(20px);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.name-block h1 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #c0607a;
+  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+}
+
+.name-block p {
+  font-size: 13px;
+  color: #d48fa5;
+  letter-spacing: 0.06em;
+}
+
+/* ===========================
+   区切り
+=========================== */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0.8rem auto;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #f4c0d1;
+}
+
+.divider span {
+  font-size: 14px;
+  color: #e07090;
+}
+
+/* ===========================
+   自己紹介文
+=========================== */
+.intro-text {
+  opacity: 0;
+  transform: translateY(20px);
+  font-size: 14px;
+  color: #8c5a6a;
+  line-height: 2;
+  margin: 0 auto 0.5rem;
+  max-width: 340px;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 10px 16px;
+  border: 1px dashed #f4c0d1;
+}
+
+/* ===========================
+   カード
+=========================== */
+.cards {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #f4c0d1;
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: #c0607a;
+  opacity: 0;
+  transform: scale(0.8);
+  cursor: default;
+  letter-spacing: 0.05em;
+}
+
+/* ===========================
+   基本情報カード
+=========================== */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1.2rem auto;
+  max-width: 360px;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  z-index: 1;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px dashed #f4c0d1;
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.info-card-title {
+  color: #d48fa5;
+  font-weight: 700;
+}
+
+.info-card-value {
+  color: #8c5a6a;
+}
+
+/* ===========================
+   SNSリンク
+=========================== */
+.sns-wrap {
+  margin-top: 1.4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  z-index: 1;
+}
+
+.sns-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #f4c0d1;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 13px;
+  color: #c0607a;
+  text-decoration: none;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+
+.sns-btn:hover {
+  background: #fce8f0;
+}
+
+
+/* ===========================
+   キャラクターカード
+=========================== */
+.chara-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1.2rem auto;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.chara-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #f4c0d1;
+  border-radius: 16px;
+  padding: 12px;
+  width: 130px;
+}
+
+.chara-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #f8b4c8;
+}
+
+.chara-card span {
+  font-size: 11px;
+  color: #c0607a;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
